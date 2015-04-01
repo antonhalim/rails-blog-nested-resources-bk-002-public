@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   end
 
   def show
+
   end
 
   def new
@@ -16,6 +17,7 @@ class PostsController < ApplicationController
   end
 
   def create
+    binding.pry
     @post = Post.new(post_params)
     respond_to do |format|
       if @post.save

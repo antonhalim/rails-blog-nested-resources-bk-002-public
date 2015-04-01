@@ -11,5 +11,15 @@
   <% end %>
 </ul>
 
+<h3>Comment:</h3>
+<li><% @post.comments.each do |comment| %></li>
+<%= comment.content %>
+<% end %>
+
+<%= form_tag("/posts/#{@post.id}/comments", method: "post") do %>
+  <%= text_field_tag('Content') %>
+  <%= submit_tag("Create Comment") %>
+  <% end %>
+
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
